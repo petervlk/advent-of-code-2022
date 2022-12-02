@@ -1,12 +1,8 @@
 (ns vlko.aoc-2022
-  (:gen-class))
-
-(defn greet
-  "Callable entry point to the application."
-  [data]
-  (println (str "Hello, " (or (:name data) "World") "!")))
+  (:gen-class)
+  (:require [vlko.calorie-count :as calorie-count]))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (greet {:name (first args)}))
+  (println "Answer1: " (calorie-count/solution)))
