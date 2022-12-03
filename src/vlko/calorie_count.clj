@@ -45,3 +45,16 @@
   []
   (with-open [rdr (io/reader (io/resource "input1.txt"))]
     (apply max (sum-calories-by-elf rdr))) )
+
+(def ^:private take-3 (partial take 3))
+(def ^:private sort-desc (partial sort #(compare %2 %1)))
+(defn- sum [xs] (apply + xs))
+
+(defn solution-bonus
+  []
+  (with-open [rdr (io/reader (io/resource "input1.txt"))]
+    (-> rdr
+        sum-calories-by-elf
+        sort-desc
+        take-3
+        sum)))
