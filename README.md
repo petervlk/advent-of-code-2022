@@ -1,6 +1,6 @@
 # vlko/aoc-2022
 
-FIXME: my new application.
+This repository contains my solutions to [Advent of Code 2022](https://adventofcode.com/2022/)
 
 ## Installation
 
@@ -10,25 +10,9 @@ Download from https://github.com/vlko/aoc-2022
 
 FIXME: explanation
 
-Run the project directly, via `:exec-fn`:
-
-    $ clojure -X:run-x
-    Hello, Clojure!
-
-Run the project, overriding the name to be greeted:
-
-    $ clojure -X:run-x :name '"Someone"'
-    Hello, Someone!
-
 Run the project directly, via `:main-opts` (`-m vlko.aoc-2022`):
 
     $ clojure -M:run-m
-    Hello, World!
-
-Run the project, overriding the name to be greeted:
-
-    $ clojure -M:run-m Via-Main
-    Hello, Via-Main!
 
 Run the project's tests (they'll fail until you edit them):
 

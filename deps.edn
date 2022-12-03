@@ -2,9 +2,6 @@
  :deps {org.clojure/clojure {:mvn/version "1.11.1"}}
  :aliases
  {:run-m {:main-opts ["-m" "vlko.aoc-2022"]}
-  :run-x {:ns-default vlko.aoc-2022
-          :exec-fn greet
-          :exec-args {:name "Clojure"}}
   :build {:deps {io.github.seancorfield/build-clj
                  {:git/tag "v0.6.3" :git/sha "9b8e09b"
                   ;; since we're building an app uberjar, we do not
