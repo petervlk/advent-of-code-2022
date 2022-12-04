@@ -1,4 +1,4 @@
-(ns vlko.calorie-count
+(ns vlko.day01
   (:require
    [clojure.java.io :as io]
    [clojure.string :as s]))
