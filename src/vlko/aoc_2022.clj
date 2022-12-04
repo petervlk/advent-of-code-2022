@@ -2,8 +2,7 @@
   (:gen-class)
   (:require
    [vlko.day01 :as day01]
-   [vlko.day02 :as day02]
-   ))
+   [vlko.day02 :as day02]))
 
 (defn -main
   "I don't do a whole lot ... yet."

@@ -10,8 +10,8 @@
 (defn win?
   [opponents-choice mine-choice]
   (or
-    (= (dec mine-choice) opponents-choice)
-    (= (+ mine-choice 2) opponents-choice)))
+   (= (dec mine-choice) opponents-choice)
+   (= (+ mine-choice 2) opponents-choice)))
 
 (defn draw?
   [opponents-choice mine-choice]
@@ -42,10 +42,10 @@
 (defn outcome->vals [[opponents-choice round-outcome]]
   (let [opponents-val ({"A" 1 "B" 2 "C" 3} opponents-choice)
         mine-val-fn (fn [opponents-val expected-outcome]
-                   (case expected-outcome
-                     "X" (if (= opponents-val 1) 3 (dec opponents-val))
-                     "Y" opponents-val
-                     "Z" (if (= opponents-val 3) 1 (inc opponents-val))))]
+                      (case expected-outcome
+                        "X" (if (= opponents-val 1) 3 (dec opponents-val))
+                        "Y" opponents-val
+                        "Z" (if (= opponents-val 3) 1 (inc opponents-val))))]
     [opponents-val (mine-val-fn opponents-val round-outcome)]))
 
 (defn solution-bonus

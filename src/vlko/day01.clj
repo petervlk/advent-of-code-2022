@@ -34,17 +34,17 @@
 (defn- sum-calories-by-elf
   [file-reader]
   (reduce
-    process-file-line      ;reducing function
-    (list 0)               ;initial value. A list containing single int (first bag ready to be processed)
-    (line-seq file-reader) ;stream of file lines
-    ))
+   process-file-line      ;reducing function
+   (list 0)               ;initial value. A list containing single int (first bag ready to be processed)
+   (line-seq file-reader) ;stream of file lines
+   ))
 
 (defn solution
   "Entry point to solution calculation.
   Sums up calories carried by each elf and returns maximum value."
   []
   (with-open [rdr (io/reader (io/resource "input1.txt"))]
-    (apply max (sum-calories-by-elf rdr))) )
+    (apply max (sum-calories-by-elf rdr))))
 
 (def ^:private take-3 (partial take 3))
 (def ^:private sort-desc (partial sort #(compare %2 %1)))
