@@ -2,12 +2,19 @@
   (:gen-class)
   (:require
    [vlko.day01 :as day01]
-   [vlko.day02 :as day02]))
+   [vlko.day02 :as day02]
+   [vlko.day03 :as day03]))
+
+(defn report-day
+  [day-label part1-res part2-res]
+  (println day-label "Answer p1:" part1-res)
+  (println day-label "Answer p2:" part2-res))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& _args]
-  (println "Day 01 Answer: " (day01/solution))
-  (println "Day 01 Answer bonus: " (day01/solution-bonus))
-  (println "Day 02 Answer: " (day02/solution))
-  (println "Day 02 Answer bonus: " (day02/solution-bonus)))
+  (report-day "Day 01" (day01/solution) (day01/solution-bonus))
+  (report-day "Day 02" (day02/solution) (day02/solution-bonus))
+  (report-day "Day 03" (day03/solution) (day03/solution-bonus)))
+
+(-main)
