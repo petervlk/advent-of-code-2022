@@ -6,7 +6,8 @@
    [vlko.day03 :as day03]
    [vlko.day04 :as day04]
    [vlko.day05 :as day05]
-   [vlko.day06 :as day06]))
+   [vlko.day06 :as day06]
+   [vlko.day07 :as day07]))
 
 (defn report-day
   [day-label part1-res part2-res]
@@ -21,6 +22,7 @@
   (report-day "Day 03" (day03/solution) (day03/solution-bonus))
   (report-day "Day 04" (day04/solution) (day04/solution-bonus))
   (report-day "Day 05" (day05/solution) (day05/solution-bonus))
-  (report-day "Day 06" (day06/solution) (day06/solution-bonus)))
+  (report-day "Day 06" (day06/solution) (day06/solution-bonus))
+  (report-day "Day 07" (day07/solution) (day07/solution-bonus)))
 
 (-main)
