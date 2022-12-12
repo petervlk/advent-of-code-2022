@@ -1,7 +1,7 @@
 (ns vlko.day09
   (:require
    [clojure.string :as s]
-   [clojure.java.io :as io]))
+   [vlko.io]))
 
 (def moves
   {"R" [0 1]
@@ -27,9 +27,15 @@
 
 (defn move-head
   [state move]
-  (let [[old-head old-tail] (peek state)
+  (let [[old-head & old-tail] (peek state)
         new-head (mapv + old-head move)]
-    (conj state [new-head (follow-head new-head old-tail)])))
+    (reduce (fn [state tail]
+              (let [moving-rope (peek state)
+                    last-moved-part (peek moving-rope)]
+                (conj
+                 (pop state)
+                 (conj moving-rope (follow-head last-moved-part tail)))))
+            (conj state [new-head]) old-tail)))
 
 (defn process-line
   [state line]
@@ -39,14 +45,17 @@
     (reduce move-head state (repeat num-moves move))))
 
 (defn count-distinct-tail-positions
-  [instructions]
- (->> (reduce process-line [[[0 0][0 0]]] instructions)
-      (map second)
-      distinct
-      count))
+  [instructions rope-length]
+  (let [init-state [(vec (repeat rope-length [0 0]))]]
+    (->> (reduce process-line init-state instructions)
+         (map peek)
+         distinct
+         count)))
 
 (defn solution
   []
-  (-> (slurp (io/resource "input9.txt"))
-      (s/split #"\n")
-      count-distinct-tail-positions))
+  (count-distinct-tail-positions (vlko.io/file-lines "input9.txt") 2))
+
+(defn solution-bonus
+  []
+  (count-distinct-tail-positions (vlko.io/file-lines "input9.txt") 10))
